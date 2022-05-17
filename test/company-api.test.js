@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const supertest = require('supertest')
-const helper = require('./test-helper')
+const helper = require('./company-test-helper')
 const app = require('../app')
 
 const api = supertest(app)

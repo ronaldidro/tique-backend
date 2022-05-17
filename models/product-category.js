@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const productCategorySchema = mongoose.Schema({
   description: {
     type: String,
+    minlength: 3,
+    required: true
   },
   products: [
     {

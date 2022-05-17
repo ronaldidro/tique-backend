@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-var SchemaTypes = mongoose.Schema.Types;
-
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -12,11 +10,10 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    set: function (v) { return Math.round(v) },
     required: true
   },
   discount: {
-    type: SchemaTypes.Decimal128,
+    type: Number,
     default: 0.0
   },
   category: {
@@ -33,4 +30,4 @@ productSchema.set('toJSON', {
   }
 })
 
-module.exports = mongoose.model('Producto', productSchema)
+module.exports = mongoose.model('Product', productSchema)

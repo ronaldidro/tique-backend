@@ -7,6 +7,9 @@ const mongoose = require('mongoose')
 require('express-async-errors')
 
 const companiesRouter = require('./controllers/companies')
+const productCategoriesRouter = require('./controllers/product-categories')
+const productsRouter = require('./controllers/products')
+
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 
@@ -42,6 +45,8 @@ app.get('/info', (request, response) => {
 })
 
 app.use('/api/companies', companiesRouter)
+app.use('/api/product-categories', productCategoriesRouter)
+app.use('/api/products', productsRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

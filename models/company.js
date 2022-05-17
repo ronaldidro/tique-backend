@@ -37,6 +37,12 @@ const companySchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Order'
     }
+  ],
+  products: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'ProductCategory'
+    }
   ]
 })
 
