@@ -6,6 +6,10 @@ const productCategorySchema = mongoose.Schema({
     minlength: 3,
     required: true
   },
+  company: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Company'
+  },
   products: [
     {
       type: mongoose.Schema.Types.ObjectId,

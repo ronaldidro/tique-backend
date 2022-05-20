@@ -38,7 +38,7 @@ const companySchema = new mongoose.Schema({
       ref: 'Order'
     }
   ],
-  products: [
+  productCategories: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'ProductCategory'
