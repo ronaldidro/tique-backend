@@ -1,18 +1,16 @@
 const mongoose = require('mongoose')
 
-var SchemaTypes = mongoose.Schema.Types;
-
 const orderDetailSchema = new mongoose.Schema({
   items: {
     type: Number,
     required: true
   },
   amount: {
-    type: SchemaTypes.Decimal128,
+    type: Number,
     required: true
   },
   discount: {
-    type: SchemaTypes.Decimal128,
+    type: Number,
     default: 0.0
   },
   order: {

@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-var SchemaTypes = mongoose.Schema.Types;
-
 const orderSchema = new mongoose.Schema({
   mode: {
     type: Number,
@@ -9,7 +7,7 @@ const orderSchema = new mongoose.Schema({
   },
   dateTime: {
     type: Date,
-    required: true    
+    required: true
   },
   payMethod: {
     type: Number,
@@ -20,7 +18,7 @@ const orderSchema = new mongoose.Schema({
     required: true
   },
   totalAmount: {
-    type: SchemaTypes.Decimal128,
+    type: Number,
     required: true
   },
   customer: {

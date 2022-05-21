@@ -9,7 +9,7 @@ const Company = require('../models/company')
 
 beforeEach(async () => {
   await Company.deleteMany({})
-  await Company.insertMany(helper.initialCompany)  
+  await Company.insertMany(helper.initialCompany)
 })
 
 describe('when there is initially some companies saved', () => {
@@ -19,7 +19,7 @@ describe('when there is initially some companies saved', () => {
       .expect(200)
       .expect('Content-Type', /application\/json/)
   })
-  
+
   test('all companies are returned', async () => {
     const response = await api.get('/api/companies')
     expect(response.body).toHaveLength(helper.initialCompany.length)
@@ -35,7 +35,7 @@ describe('viewing a specific company', () => {
       .get(`/api/companies/${companyToView.id}`)
       .expect(200)
       .expect('Content-Type', /application\/json/)
-    
+
     const processedCompanyToView = JSON.parse(JSON.stringify(companyToView))
 
     expect(resultCompany.body).toEqual(processedCompanyToView)
@@ -71,10 +71,10 @@ describe('addition of a new company', () => {
       .send(newCompany)
       .expect(201)
       .expect('Content-Type', /application\/json/)
-  
+
     const CompaniesAtEnd = await helper.companiesInDb()
     expect(CompaniesAtEnd).toHaveLength(helper.initialCompany.length + 1)
-  
+
     const names = CompaniesAtEnd.map(company => company.name)
     expect(names).toContain('new company name')
   })

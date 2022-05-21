@@ -11,7 +11,7 @@ productCategoriesRouter.get('/:id', async (request, response) => {
   const productCategory = await ProductCategory
     .findById(request.params.id)
     .populate('products', { name: 1, description: 1, price: 1, discount: 1 })
-    
+
   if(productCategory) {
     response.json(productCategory.toJSON())
   } else {
@@ -31,7 +31,7 @@ productCategoriesRouter.post('/', async(request, response) => {
   const savedProductCategory = await productCategory.save()
   company.productCategories = company.productCategories.concat(savedProductCategory._id)
   await company.save()
-  
+
   response.status(201).json(savedProductCategory)
 })
 

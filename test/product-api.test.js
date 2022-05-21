@@ -29,7 +29,7 @@ describe('product categories test', () => {
       .get(`/api/product-categories/${productCategoryToView.id}`)
       .expect(200)
       .expect('Content-Type', /application\/json/)
-    
+
     const processedProductCategoryToView = JSON.parse(JSON.stringify(productCategoryToView))
 
     expect(resultProductCategory.body).toEqual(processedProductCategoryToView)
@@ -43,10 +43,10 @@ describe('product categories test', () => {
       .send(newProductCategory)
       .expect(201)
       .expect('Content-Type', /application\/json/)
-  
+
     const productCategoriesAtEnd = await helper.productCategoriesInDb()
     expect(productCategoriesAtEnd).toHaveLength(helper.initialProductCategories.length + 1)
-  
+
     const descriptions = productCategoriesAtEnd.map(pc => pc.description)
     expect(descriptions).toContain('product category test decription')
   })
@@ -66,7 +66,7 @@ describe('products test', () => {
       .get(`/api/products/${productToView.id}`)
       .expect(200)
       .expect('Content-Type', /application\/json/)
-    
+
     const processedProductToView = JSON.parse(JSON.stringify(productToView))
 
     expect(resultProduct.body).toEqual(processedProductToView)
@@ -83,10 +83,10 @@ describe('products test', () => {
       .send(newProduct)
       .expect(201)
       .expect('Content-Type', /application\/json/)
-  
+
     const productsAtEnd = await helper.productsInDb()
     expect(productsAtEnd).toHaveLength(helper.initialProducts.length + 1)
-  
+
     const names = productsAtEnd.map(p => p.name)
     expect(names).toContain('product test name')
   })

@@ -9,15 +9,15 @@ companiesRouter.get('/', async (request, response) => {
 companiesRouter.get('/:id', async (request, response) => {
   const company = await Company
     .findById(request.params.id)
-    .populate({ 
-      path: 'productCategories', 
-      select: 'description', 
-      populate: { 
+    .populate({
+      path: 'productCategories',
+      select: 'description',
+      populate: {
         path: 'products',
         select: 'name description price discount'
       }
     })
-    
+
   if(company) {
     response.json(company.toJSON())
   } else {

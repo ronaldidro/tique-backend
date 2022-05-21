@@ -9,7 +9,7 @@ productsRouter.get('/', async (request, response) => {
 
 productsRouter.get('/:id', async (request, response) => {
   const product = await Product.findById(request.params.id)
-    
+
   if(product) {
     response.json(product.toJSON())
   } else {
@@ -22,9 +22,9 @@ productsRouter.post('/', async(request, response) => {
   const { name, description, price, discount, categoryId } = body
   const productCategory = await ProductCategory.findById(categoryId)
 
-  const product = new Product({ 
-    name, 
-    description, 
+  const product = new Product({
+    name,
+    description,
     price,
     discount,
     category: productCategory._id
