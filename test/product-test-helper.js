@@ -1,10 +1,7 @@
 const ProductCategory = require('../models/product-category')
 const Product = require('../models/product')
 
-const initialProductCategories = [
-  { description: 'beverages' },
-  { description: 'desserts' }
-]
+const initialProductCategories = [{ description: 'beverages' }, { description: 'desserts' }]
 
 const initialProducts = [
   {

@@ -7,14 +7,14 @@ if (process.argv.length < 3) {
 
 const password = process.argv[2]
 
-const url =
-  `mongodb+srv://tique:${password}@cluster0.8m1fv.mongodb.net/tique-bd?retryWrites=true&w=majority`
+const url = `mongodb+srv://tique:${password}@cluster0.8m1fv.mongodb.net/tique-bd?retryWrites=true&w=majority`
 
-mongoose.connect(url)
+mongoose
+  .connect(url)
   .then(() => {
     console.log('connected to MongoDB')
   })
-  .catch((error) => {
+  .catch(error => {
     console.log('error connecting to MongoDB:', error.message)
   })
 

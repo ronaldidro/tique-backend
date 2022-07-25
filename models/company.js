@@ -21,16 +21,12 @@ const companySchema = new mongoose.Schema({
   },
   attentionSchedule: {
     type: Array,
+    default: [],
+    required: true
+  },
+  socialNetworks: {
+    type: Array,
     default: []
-  },
-  whatsappUrl: {
-    type: String
-  },
-  facebookUrl: {
-    type: String
-  },
-  instagramUrl: {
-    type: String
   },
   orders: [
     {

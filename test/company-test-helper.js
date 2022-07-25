@@ -5,12 +5,16 @@ const initialCompany = [
     name: 'Name Test Company',
     address: 'Address Test Company',
     placeService: 'Place Service Test Company',
-    attentionSchedule: [{ 'Everyday': 'Open 24 hours' }]
+    attentionSchedule: [{ Everyday: 'Open 24 hours' }]
   }
 ]
 
 const nonExistingId = async () => {
-  const company = new Company({ name: 'willremovethissoon', address: 'willremovethissoon', placeService: 'willremovethissoon' })
+  const company = new Company({
+    name: 'willremovethissoon',
+    address: 'willremovethissoon',
+    placeService: 'willremovethissoon'
+  })
   await company.save()
   await company.remove()
 

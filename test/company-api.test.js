@@ -44,17 +44,13 @@ describe('viewing a specific company', () => {
   test('fails with statuscode 404 if company does not exist', async () => {
     const validNonexistingId = await helper.nonExistingId()
 
-    await api
-      .get(`/api/companies/${validNonexistingId}`)
-      .expect(404)
+    await api.get(`/api/companies/${validNonexistingId}`).expect(404)
   })
 
   test('fails with statuscode 400 if id is invalid', async () => {
     const invalidId = '5a3d5da59070081a82a3445'
 
-    await api
-      .get(`/api/companies/${invalidId}`)
-      .expect(400)
+    await api.get(`/api/companies/${invalidId}`).expect(400)
   })
 })
 

@@ -10,14 +10,14 @@ productsRouter.get('/', async (request, response) => {
 productsRouter.get('/:id', async (request, response) => {
   const product = await Product.findById(request.params.id)
 
-  if(product) {
+  if (product) {
     response.json(product.toJSON())
   } else {
     response.status(404).end()
   }
 })
 
-productsRouter.post('/', async(request, response) => {
+productsRouter.post('/', async (request, response) => {
   const body = request.body
   const { name, description, price, discount, categoryId } = body
   const productCategory = await ProductCategory.findById(categoryId)

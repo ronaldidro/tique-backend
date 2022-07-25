@@ -15,16 +15,17 @@ const logger = require('./utils/logger')
 
 morgan.token('body', req => {
   const body = JSON.stringify(req.body)
-  if(Object.keys(body).length > 2) return body
+  if (Object.keys(body).length > 2) return body
 })
 
 logger.info('connecting to', config.MONGODB_URI)
 
-mongoose.connect(config.MONGODB_URI)
+mongoose
+  .connect(config.MONGODB_URI)
   .then(() => {
     logger.info('connected to MongoDB')
   })
-  .catch((error) => {
+  .catch(error => {
     logger.error('error connection to MongoDB:', error.message)
   })
 
@@ -38,9 +39,8 @@ if (process.env.NODE_ENV !== 'test') {
 
 app.get('/info', (request, response) => {
   response.send(`
-    <h1>Tique Smart Orders</h1>
-    <em>Powered by Didro's Apps</em>
-    <p><u>${new Date()}</u></p>
+    <h1>Tique App API</h1>
+    <p><em>&copy;${new Date().getFullYear()} Hatun Tech. Todos los derechos reservados.</em></p>
   `)
 })
 

@@ -8,18 +8,21 @@ productCategoriesRouter.get('/', async (request, response) => {
 })
 
 productCategoriesRouter.get('/:id', async (request, response) => {
-  const productCategory = await ProductCategory
-    .findById(request.params.id)
-    .populate('products', { name: 1, description: 1, price: 1, discount: 1 })
+  const productCategory = await ProductCategory.findById(request.params.id).populate('products', {
+    name: 1,
+    description: 1,
+    price: 1,
+    discount: 1
+  })
 
-  if(productCategory) {
+  if (productCategory) {
     response.json(productCategory.toJSON())
   } else {
     response.status(404).end()
   }
 })
 
-productCategoriesRouter.post('/', async(request, response) => {
+productCategoriesRouter.post('/', async (request, response) => {
   const body = request.body
   const company = await Company.findById(body.companyId)
 
