@@ -48,6 +48,10 @@ app.use('/api/companies', companiesRouter)
 app.use('/api/product-categories', productCategoriesRouter)
 app.use('/api/products', productsRouter)
 
+app.get('/*', (request, response) => {
+  response.sendFile(`${__dirname}/build/index.html`)
+})
+
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
